@@ -1,0 +1,176 @@
+PUT localhost:8080/moderator/createPhone
+Content-Type: application/json
+
+{
+  "serialNumber": "1",
+  "brand": "Asus",
+  "available": "InStock",
+  "model": "ZenFone",
+  "memory": 3,
+  "storage": 32,
+  "camera": {
+    "lens": [
+      {
+        "megaPixels": 12,
+        "maximumZoom": 5,
+        "photoResolution": "UHD_4K",
+        "videoResolution": "FullHd",
+        "nightMode": true
+      },
+      {
+        "megaPixels": 48,
+        "maximumZoom": 5,
+        "photoResolution": "UHD_4K",
+        "videoResolution": "FullHd",
+        "nightMode": false
+      }
+    ]
+  },
+  "microCD": true,
+  "miniJack": true,
+  "faceId": true,
+  "fastCharge": true,
+  "wirelessCharge": true,
+  "material": "Glass",
+  "batteryCapacity": 4000,
+  "warrantyYears": 0
+}
+
+###
+
+PUT localhost:8080/moderator/createPhones
+Content-Type: application/json
+
+[
+  {
+    "serialNumber": "12",
+    "brand": "Google",
+    "available": "InStock",
+    "model": "Pixel 3a",
+    "memory": 4,
+    "storage": 64,
+    "camera": {
+      "lens": [
+        {
+          "megaPixels": 12,
+          "maximumZoom": 7,
+          "photoResolution": "UHD_4K",
+          "videoResolution": "UHD_4K",
+          "nightMode": true
+        }
+      ]
+    },
+    "microCD": false,
+    "miniJack": true,
+    "faceId": false,
+    "fastCharge": true,
+    "wirelessCharge": false,
+    "material": "Plastic",
+    "batteryCapacity": 3000,
+    "warrantyYears": 3
+  },
+  {
+    "serialNumber": "123",
+    "brand": "Samsung",
+    "available": "InStock",
+    "model": "Galaxy Note",
+    "memory": 8,
+    "storage": 256,
+    "camera": {
+      "lens": [
+        {
+          "megaPixels": 128,
+          "maximumZoom": 50,
+          "photoResolution": "UHD_4K",
+          "videoResolution": "UHD_4K",
+          "nightMode": true
+        },
+        {
+          "megaPixels": 12,
+          "maximumZoom": 5,
+          "photoResolution": "UHD_4K",
+          "videoResolution": "FullHd",
+          "nightMode": false
+        }
+      ]
+    },
+    "microCD": false,
+    "miniJack": false,
+    "faceId": true,
+    "fastCharge": true,
+    "wirelessCharge": true,
+    "material": "Glass",
+    "batteryCapacity": 5000,
+    "warrantyYears": 5
+  },
+  {
+    "serialNumber": "1234",
+    "brand": "AGM",
+    "available": "InStock",
+    "model": "string",
+    "memory": 4,
+    "storage": 128,
+    "camera": {
+      "lens": [
+        {
+          "megaPixels": 12,
+          "maximumZoom": 5,
+          "photoResolution": "UHD_4K",
+          "videoResolution": "FullHd",
+          "nightMode": true
+        },
+        {
+          "megaPixels": 48,
+          "maximumZoom": 5,
+          "photoResolution": "UHD_4K",
+          "videoResolution": "FullHd",
+          "nightMode": false
+        },
+        {
+          "megaPixels": 8,
+          "maximumZoom": 2,
+          "photoResolution": "UHD_4K",
+          "videoResolution": "FullHd",
+          "nightMode": false
+        }
+      ]
+    },
+    "microCD": true,
+    "miniJack": true,
+    "faceId": true,
+    "fastCharge": true,
+    "wirelessCharge": true,
+    "material": "Plastic",
+    "batteryCapacity": 3500,
+    "warrantyYears": 1
+  },
+  {
+    "serialNumber": "12345",
+    "brand": "Huawei",
+    "available": "InStock",
+    "model": "Mate 60 Pro",
+    "memory": 16,
+    "storage": 512,
+    "camera": {
+      "lens": [
+        {
+          "megaPixels": 128,
+          "maximumZoom": 40,
+          "photoResolution": "UHD_8K",
+          "videoResolution": "UHD_8K",
+          "nightMode": true
+        }
+      ]
+    },
+    "microCD": true,
+    "miniJack": true,
+    "faceId": true,
+    "fastCharge": true,
+    "wirelessCharge": true,
+    "material": "Metal",
+    "batteryCapacity": 4400,
+    "warrantyYears": 2
+  }
+]
+
+###

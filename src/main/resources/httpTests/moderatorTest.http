@@ -1,0 +1,46 @@
+###
+
+POST localhost:8080/moderator/auth?login=moderator&password=moderator
+
+###
+
+GET POST localhost:8080/moderator/logout
+
+###
+
+GET localhost:8080/moderator/getOrdersByStatus?deliveryStatus=Accepted
+
+###
+///
+POST localhost:8080/moderator/changeUserPhoneNumber?phoneNumber=375290003333&newPhoneNumber=375293575921
+
+###
+
+GET localhost:8080/moderator/getOrder?login=isethesal
+
+###
+
+GET localhost:8080/moderator/getOrders
+
+###
+
+POST localhost:8080/moderator/acceptAll
+
+###
+
+POST localhost:8080/moderator/accept?login=isethesal
+
+###
+///
+POST localhost:8080/moderator/changeAllStatus?deliveryStatus=InProcess
+
+
+###
+
+DELETE localhost:8080/moderator/deleteFromOrder?serialNumber=123&login=isethesal
+
+###
+
+DELETE localhost:8080/moderator/deleteOrderByLogin?login=isethesal
+
+###

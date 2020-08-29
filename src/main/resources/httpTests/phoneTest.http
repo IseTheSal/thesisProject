@@ -1,0 +1,29 @@
+POST localhost:8080/moderator/createPhone
+Content-Type: application/json
+
+{
+  "serialNumber": 666,
+  "brand": "Acer"
+}
+
+###
+
+POST localhost:8080/moderator/createPhone
+Content-Type: application/json
+
+{
+  "serialNumber": 6667,
+  "brand": "Cat"
+}
+
+###
+
+POST localhost:8080/moderator/createPhone
+Content-Type: application/json
+
+{
+  "serialNumber": 123,
+  "brand": "Samsung"
+}
+
+###

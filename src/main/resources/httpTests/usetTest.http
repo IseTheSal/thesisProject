@@ -1,0 +1,36 @@
+POST localhost:8080/user/reg
+Content-Type: application/json
+
+{
+  "login": "isethesal",
+  "password": "1234",
+  "name": "Ilea",
+  "phoneNumber": "375293755921"
+}
+
+###
+
+POST localhost:8080/user/auth?login=ileathehunter&password=123456
+
+###
+
+GET localhost:8080/user/myOrder
+
+###
+
+DELETE localhost:8080/user/deleteFromOrder?serialNumber=123
+
+###
+
+PUT localhost:8080/user/changePhoneNumber?newPhoneNumber=+375290003333
+
+###
+
+POST localhost:8080/user/logout
+
+###
+
+DELETE localhost:8080/user/deleteUser
+
+###
+

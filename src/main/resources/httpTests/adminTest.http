@@ -1,0 +1,89 @@
+###
+POST localhost:8080/admin/createAdmin
+Content-Type: application/json
+
+{
+  "login": "admin",
+  "password": "admin"
+}
+
+###
+
+POST localhost:8080/admin/auth?login=admin&password=admin
+
+###
+
+PUT localhost:8080/admin/createModerator
+Content-Type: application/json
+
+{
+  "login": "moderator",
+  "password": "moderator"
+}
+
+###
+
+GET localhost:8080/admin/getModerator?login=moderator
+
+###
+
+GET localhost:8080/admin/getAllModerators
+
+###
+
+DELETE localhost:8080/admin/deleteModerator?login=moderator
+
+###
+
+PUT localhost:8080/admin/createCourier
+Content-Type: application/json
+
+{
+  "login": "courier",
+  "password": "courier",
+  "phoneNumber": "375293094534",
+  "name": "Ilea"
+}
+
+###
+
+GET localhost:8080/admin/getCourier?login=courier
+
+###
+
+GET localhost:8080/admin/getAllCouriers
+
+###
+
+DELETE localhost:8080/admin/deleteCourier?login=courier
+
+###
+
+PUT localhost:8080/admin/createUser
+Content-Type: application/json
+
+{
+  "login": "isethesal",
+  "password": "12345",
+  "name": "Ilea",
+  "phoneNumber": "375293575921"
+}
+
+###
+
+GET localhost:8080/admin/getUser?login=isethesal
+
+###
+
+GET localhost:8080/admin/getAllUsers
+
+###
+
+DELETE localhost:8080/admin/deleteUser?login=isethesal
+
+###
+
+
+
+
+
