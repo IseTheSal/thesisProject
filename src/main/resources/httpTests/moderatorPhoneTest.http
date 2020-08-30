@@ -9,7 +9,7 @@ Content-Type: application/json
   "memory": 3,
   "storage": 32,
   "camera": {
-    "lens": [
+    "lensList": [
       {
         "megaPixels": 12,
         "maximumZoom": 5,
@@ -36,6 +36,7 @@ Content-Type: application/json
   "warrantyYears": 0
 }
 
+
 ###
 
 PUT localhost:8080/moderator/createPhones
@@ -50,7 +51,7 @@ Content-Type: application/json
     "memory": 4,
     "storage": 64,
     "camera": {
-      "lens": [
+      "lensList": [
         {
           "megaPixels": 12,
           "maximumZoom": 7,
@@ -77,7 +78,7 @@ Content-Type: application/json
     "memory": 8,
     "storage": 256,
     "camera": {
-      "lens": [
+      "lensList": [
         {
           "megaPixels": 128,
           "maximumZoom": 50,
@@ -111,7 +112,7 @@ Content-Type: application/json
     "memory": 4,
     "storage": 128,
     "camera": {
-      "lens": [
+      "lensList": [
         {
           "megaPixels": 12,
           "maximumZoom": 5,
@@ -152,7 +153,7 @@ Content-Type: application/json
     "memory": 16,
     "storage": 512,
     "camera": {
-      "lens": [
+      "lensList": [
         {
           "megaPixels": 128,
           "maximumZoom": 40,

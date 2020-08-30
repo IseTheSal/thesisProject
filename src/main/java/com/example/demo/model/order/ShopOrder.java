@@ -5,6 +5,8 @@ import com.example.demo.model.users.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -16,11 +18,8 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "shoporder", schema = "finalshop")
 public class ShopOrder {
-
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private long id;
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -28,18 +27,25 @@ public class ShopOrder {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
+    @Column(name = "order_id", insertable = false, updatable = false)
     private UUID id;
 
-    //@Column(name = "id", updatable = false, nullable = false)
 
-    @NotNull
+    //    @NotNull
     @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_user_id")
     private User user;
 
-    @NotNull
-    @OneToMany(cascade = CascadeType.ALL)
+    //    @NotNull
+    @OneToMany(
+            mappedBy = "shopOrder",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Phone> phoneList;
 
     @NotNull
+    @Column(name = "deliverystatus")
+    @Enumerated(EnumType.STRING)
     private DeliveryStatus deliveryStatus;
 }

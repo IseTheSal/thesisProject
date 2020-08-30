@@ -17,8 +17,8 @@ PUT localhost:8080/admin/createModerator
 Content-Type: application/json
 
 {
-  "login": "moderator",
-  "password": "moderator"
+  "login": "moderator1",
+  "password": "moderator1"
 }
 
 ###
@@ -63,15 +63,17 @@ PUT localhost:8080/admin/createUser
 Content-Type: application/json
 
 {
-  "login": "isethesal",
+  "login": "ileathehunter",
   "password": "12345",
-  "name": "Ilea",
-  "phoneNumber": "375293575921"
+  "name": "Alex",
+  "phoneNumber": "375293575921",
+  "address": "Kupaly 34"
 }
+
 
 ###
 
-GET localhost:8080/admin/getUser?login=isethesal
+GET localhost:8080/admin/getUser?login=ileathehunter
 
 ###
 
@@ -79,7 +81,7 @@ GET localhost:8080/admin/getAllUsers
 
 ###
 
-DELETE localhost:8080/admin/deleteUser?login=isethesal
+DELETE localhost:8080/admin/deleteUser?login=ileathehunter
 
 ###
 

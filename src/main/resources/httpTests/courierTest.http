@@ -19,16 +19,18 @@ PUT localhost:8080/delivery/changeToInProcess?phoneNumber=375293575921
 PUT localhost:8080/delivery/changeAllToInProcess
 
 ###
-///
+
 PUT localhost:8080/delivery/createOrder?serialNumber=123478
 Content-Type: application/json
 
 {
-  "login": "isethesal",
+  "login": "ileathehunter",
   "password": "12345",
-  "name": "Ilea",
-  "phoneNumber": "375293575921"
+  "name": "Alex",
+  "phoneNumber": "375293575921",
+  "address": "Nezalegnosti 38"
 }
+
 
 ###
 

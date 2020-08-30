@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
@@ -16,6 +13,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "shop_moderator", schema = "finalshop")
 public class Moderator {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -23,12 +21,14 @@ public class Moderator {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(updatable = false, nullable = false)
+    @Column(name = "moderator_id", updatable = false, nullable = false)
     private UUID id;
 
     @NotNull
+    @Column(name = "login", insertable = false, updatable = false)
     private String login;
 
     @NotNull
+    @Column(name = "login")
     private String password;
 }

@@ -5,12 +5,13 @@ Content-Type: application/json
   "login": "isethesal",
   "password": "1234",
   "name": "Ilea",
-  "phoneNumber": "375293755921"
+  "phoneNumber": "375293755921",
+  "address": "Nezalegnosti 38"
 }
 
 ###
 
-POST localhost:8080/user/auth?login=ileathehunter&password=123456
+POST localhost:8080/user/auth?login=isethesal&password=1234
 
 ###
 
