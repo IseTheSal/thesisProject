@@ -38,7 +38,8 @@
 <h1 style="color:#ff8b00;font-size:40px; text-align: left">Stack: </h1>
 <h1 style="color:#ff00d3;font-size:40px; text-align: left"> Java;</h1>
 <h1 style="color:#ff00d3;font-size:40px; text-align: left"> Spring Boot, Rest,</h1>
-<h1 style="color:#ff00d3;font-size:40px; text-align: left"> Spring Data JPA, H2</h1>
+<h1 style="color:#ff00d3;font-size:40px; text-align: left"> Spring Data JPA</h1>
+<h1 style="color:#ff00d3;font-size:40px; text-align: left">PostgreSQL, H2</h1>
 <h1 style="color:#ff00d3;font-size:40px; text-align: left"> Validation, Swagger</h1>
 <h1 style="color:#00ff17;font-size:40px; text-align: left">v1.0</h1>
 
