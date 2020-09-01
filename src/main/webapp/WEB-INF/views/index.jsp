@@ -46,6 +46,9 @@
     <a href="swagger-ui/">
         <button type="button" class="btn btn-success">Swagger</button>
     </a>
+    <a href="h2-console">
+        <button type="button" class="btn btn-success">h2-console</button>
+    </a>
 </div>
 
 <h1 style="color:red;font-size:50px; text-align: center">Illia Aheyeu</h1>
