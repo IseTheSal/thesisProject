@@ -4,6 +4,8 @@ import com.example.demo.model.order.DeliveryStatus;
 import com.example.demo.model.order.ShopOrder;
 import com.example.demo.repsitory.ModeratorRepository;
 import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,8 @@ public class ModeratorService {
     private final OrderService orderService;
     private final ModeratorRepository moderatorRepository;
 
+    private Logger logger = LoggerFactory.getLogger(ModeratorService.class);
+
     public HttpStatus auth(String login, String password) {
         return moderatorRepository.existsByLoginAndPassword(login, password) ? HttpStatus.OK : HttpStatus.BAD_REQUEST;
     }
@@ -24,8 +28,10 @@ public class ModeratorService {
     public HttpStatus logout(HttpSession httpSession) {
         if (httpSession.getAttribute("currentModer") != null) {
             httpSession.invalidate();
+            logger.info("Successful invalidation");
             return HttpStatus.OK;
         }
+        logger.error("unknown error");
         return HttpStatus.BAD_REQUEST;
     }
 
@@ -40,8 +46,12 @@ public class ModeratorService {
     public HttpStatus changeDeliveryStatusToAcceptedByUserLogin(String login) {
         HttpStatus httpStatus = orderService.changeDeliveryStatusToAcceptedByUserLogin(login);
         if (httpStatus.equals(HttpStatus.ACCEPTED)) {
+            logger.info("Status was changed");
             return HttpStatus.OK;
-        } else return HttpStatus.BAD_REQUEST;
+        } else {
+            logger.error("Status wasn`t changed");
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     public HttpStatus deleteFromUserOrder(String serialNumber, String login) {

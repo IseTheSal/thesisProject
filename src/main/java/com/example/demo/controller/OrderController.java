@@ -5,6 +5,7 @@ import com.example.demo.model.phone.Phone;
 import com.example.demo.model.users.User;
 import com.example.demo.service.OrderService;
 import lombok.Data;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Data
 @RestController
@@ -19,6 +21,7 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService orderService;
+
 
 
     @RequestMapping(value = "/allPhones", method = RequestMethod.GET)

@@ -8,6 +8,7 @@ import com.example.demo.service.AdminService;
 import com.example.demo.service.UserService;
 import lombok.Data;
 import org.hibernate.validator.constraints.pl.REGON;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Data
 @RestController

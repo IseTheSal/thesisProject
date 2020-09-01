@@ -10,6 +10,9 @@ import com.example.demo.repsitory.OrderRepository;
 import com.example.demo.repsitory.PhoneRepository;
 import com.example.demo.repsitory.UserRepository;
 import lombok.Data;
+import org.hibernate.criterion.Order;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,10 +28,10 @@ import java.util.UUID;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-
     private final UserRepository userRepository;
-
     private final PhoneRepository phoneRepository;
+
+    public Logger logger = LoggerFactory.getLogger(OrderService.class);
 
     public void saveOrder(ShopOrder shopOrder) {
         orderRepository.save(shopOrder);
@@ -36,10 +39,12 @@ public class OrderService {
 
     public HttpStatus createForCourier(User user, String serialNumber) {
         if (userRepository.existsUserByLoginAndPassword(user.getLogin(), user.getPassword())) {
+            logger.error("User with that login already exist");
             return HttpStatus.BAD_REQUEST;
         } else {
             userRepository.save(user);
             createOrder(user, serialNumber);
+            logger.info("Order created successfully");
             return HttpStatus.OK;
         }
     }
@@ -83,9 +88,10 @@ public class OrderService {
             phone.setAvailable(Available.Ordered);
             phoneRepository.save(phone);
             saveOrder(order);
+            logger.info(phone + " was added to order from" + order.getUser().getName());
             return HttpStatus.OK;
-
         }
+        logger.error("Such phone or user doesn`t exist");
         return HttpStatus.BAD_REQUEST;
     }
 
@@ -99,9 +105,11 @@ public class OrderService {
             List<Phone> phoneList = currentOrder.getPhoneList();
             if (phoneList.removeIf(phone -> phone.getSerialNumber().equals(serialNumber))) {
                 orderRepository.save(currentOrder);
+                logger.info("Successfully removed");
                 return HttpStatus.OK;
             }
         }
+        logger.error("Unexpected error");
         return HttpStatus.BAD_REQUEST;
     }
 
@@ -111,9 +119,11 @@ public class OrderService {
         if (phoneList != null) {
             if (phoneList.remove(phone)) {
                 saveOrder(shopOrder);
+                logger.info("Successfully deleted");
                 return HttpStatus.OK;
             }
         }
+        logger.error("Unexpected error");
         return HttpStatus.BAD_REQUEST;
     }
 
@@ -123,8 +133,10 @@ public class OrderService {
             User user = order.getUser();
             user.setPhoneNumber(newPhoneNumber);
             userRepository.save(user);
+            logger.info("Successfully changed");
             return HttpStatus.OK;
         }
+        logger.error("User with phoneNumber - " + phoneNumber + " doesn`t exist");
         return HttpStatus.BAD_REQUEST;
     }
 
@@ -181,8 +193,10 @@ public class OrderService {
         if (byUser_phoneNumber != null) {
             byUser_phoneNumber.setDeliveryStatus(deliveryStatus);
             orderRepository.save(byUser_phoneNumber);
+            logger.info("Status changed successfully");
             return HttpStatus.OK;
         }
+        logger.error("User with phoneNumber - " + phoneNumber + " doesn`t exist");
         return HttpStatus.BAD_REQUEST;
     }
 
@@ -216,15 +230,23 @@ public class OrderService {
     @Transactional
     public HttpStatus deleteOrderByLogin(String login) {
         if (orderRepository.deleteByUser_Login(login) > 0) {
+            logger.info("Successfully deleted");
             return HttpStatus.OK;
-        } else return HttpStatus.BAD_REQUEST;
+        } else {
+            logger.error("Unexpected error");
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     @Transactional
     public HttpStatus deleteOrderByPhoneNumber(String phoneNumber) {
         if (orderRepository.deleteByUser_PhoneNumber(phoneNumber) > 0) {
+            logger.info("Successfully deleted");
             return HttpStatus.OK;
-        } else return HttpStatus.BAD_REQUEST;
+        } else {
+            logger.error("Unexpected error");
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
 

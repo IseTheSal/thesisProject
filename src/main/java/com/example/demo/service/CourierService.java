@@ -6,6 +6,8 @@ import com.example.demo.model.phone.Phone;
 import com.example.demo.model.users.User;
 import com.example.demo.repsitory.CourierRepository;
 import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +21,16 @@ public class CourierService {
 
     private final CourierRepository courierRepository;
 
+    private Logger logger = LoggerFactory.getLogger(CourierService.class);
+
     public HttpStatus authCourier(String login, String password) {
         if (courierRepository.existsByLoginAndPassword(login, password)) {
+            logger.info("Courier logged in");
             return HttpStatus.OK;
-        } else return HttpStatus.BAD_REQUEST;
+        } else {
+            logger.info("Courier didn`t logged in");
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     public HttpStatus changeStatusToDelivered(String phoneNumber) {
